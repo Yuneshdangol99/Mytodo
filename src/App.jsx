@@ -1,13 +1,26 @@
-import Sidebar from "./component/Sidebar/Sidebar";
-import HeroContainer from "./component/HeroContainer/HeroContainer";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import RootLayout from "./layout/RootLayout";
+import Home from "./pages/Home.jsx";
+import Mytask from "./pages/Mytask.jsx";
 
 function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<RootLayout />}>
+        <Route index element={<Home />} />
+        <Route path="mytask" element={<Mytask />} />
+      </Route>
+    )
+  );
+
   return (
     <>
-      <div className="flex">
-        <Sidebar />
-        <HeroContainer />
-      </div>
+      <RouterProvider router={router} />
     </>
   );
 }
