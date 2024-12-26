@@ -3,7 +3,7 @@ import HeroHeading from "./Heroheading/HeroHeading";
 
 function HeroContainer() {
   return (
-    <div className="w-full h-[100vh] py-6 px-7">
+    <div className="w-full h-[100vh] py-4 px-7">
       <HeroHeading />
     </div>
   );

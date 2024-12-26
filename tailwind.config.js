@@ -9,7 +9,7 @@ export default {
         mylogo: ["mylogo"],
       },
       colors: {
-        primary: "#198754",
+        primary: "#D65F00",
         secondary: {
           gray_200: "#e5e7eb",
           gray_300: "#d1d5db",
