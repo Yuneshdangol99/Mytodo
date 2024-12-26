@@ -10,13 +10,19 @@ function TopContent() {
   const sideicon = [Home, task];
 
   return (
-    <div className="mt-10">
+    <div className="mt-12">
       <ul>
         {content.map((item, index) => (
           <li key={index}>
             <NavLink
               to={item.path}
-              className="list-none flex items-center gap-4 font-medium mb-3 cursor-pointer hover:bg-secondary-gray_200 p-3 rounded-lg duration-300"
+              className={({ isActive }) =>
+                `list-none flex items-center gap-4 font-medium mb-3 cursor-pointer p-3 rounded-lg duration-300 ${
+                  isActive
+                    ? "bg-secondary-gray_100"
+                    : "hover:bg-secondary-gray_50"
+                }`
+              }
             >
               {sideicon[index] && (
                 <img src={sideicon[index]} alt={item.name} className="w-5" />
