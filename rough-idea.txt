@@ -1,0 +1,4 @@
+rough idea 
+
+<1> create a bank
+<2> create a portfolio
