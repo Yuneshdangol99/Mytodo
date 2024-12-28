@@ -2,6 +2,7 @@ import React from "react";
 import HeroHeading from "./Heroheading/HeroHeading";
 import AddTask from "./Addtask/AddTask";
 import DayTimeline from "./DayTimeline/DayTimeline";
+import TaskandGraph from "./TaskandGraph/TaskandGraph";
 
 function HeroContainer() {
   return (
@@ -9,6 +10,7 @@ function HeroContainer() {
       <HeroHeading />
       <AddTask />
       <DayTimeline />
+      <TaskandGraph />
     </div>
   );
 }

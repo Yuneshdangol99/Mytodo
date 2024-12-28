@@ -1,10 +1,9 @@
 import React from "react";
-import HeroContainer from "../component/HeroContainer/HeroContainer";
 
 function Home() {
   return (
-    <div className="w-[80%]">
-      <HeroContainer />
+    <div>
+      <h1>hello world</h1>
     </div>
   );
 }
