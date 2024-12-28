@@ -10,6 +10,8 @@ export default {
       },
       colors: {
         primary: "#D65F00",
+        primary_dark: "#b35002",
+        primary_light: "#f27a1b",
         secondary: {
           gray_50: "#f9fafb",
           gray_100: "#f3f4f6",

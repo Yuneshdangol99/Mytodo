@@ -6,7 +6,7 @@ function Logo() {
     <div className="flex justify-between items-center">
       <div className="flex">
         <a href="#">
-          <h1 className="font-mylogo text-3xl text-primary">KaamHaru</h1>
+          <h1 className="font-mylogo text-3xl text-primary">Erfolg</h1>
         </a>
       </div>
 
