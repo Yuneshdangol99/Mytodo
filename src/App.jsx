@@ -22,10 +22,10 @@ function App() {
 
         {/* Mytask Page with Nested Routes */}
         <Route path="mytask" element={<Mytask />}>
+          <Route path="task-list" element={<TaskList />} />
           <Route path="overview" element={<Overview />} />
           <Route path="calendar" element={<Calendar />} />
           <Route path="status-payment" element={<StatusPayment />} />
-          <Route path="task-list" element={<TaskList />} />
           <Route path="timeline" element={<Timeline />} />
         </Route>
       </Route>

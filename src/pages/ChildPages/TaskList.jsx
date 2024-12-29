@@ -1,5 +1,4 @@
 import React from "react";
-import TaskandGraph from "../../component/HeroContainer/TaskandGraph/TaskandGraph";
 
 function TaskList() {
   return (
