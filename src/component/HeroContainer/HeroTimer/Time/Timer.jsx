@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Timer({ isPlaying }) {
+function Timer({ isPlaying, setTimeStopped }) {
   const [Timeleft, setTimeleft] = useState(1500);
 
   useEffect(() => {
@@ -9,6 +9,7 @@ function Timer({ isPlaying }) {
         setTimeleft((prevTimeleft) => {
           if (prevTimeleft <= 0) {
             clearInterval(interval);
+            setTimeStopped(true);
             return 0;
           }
           return prevTimeleft - 1;

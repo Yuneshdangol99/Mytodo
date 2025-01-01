@@ -5,7 +5,7 @@ function Logo() {
   return (
     <div className="flex justify-between items-center">
       <div className="flex">
-        <a href="#">
+        <a href="/mytask">
           <h1 className="font-mylogo text-3xl text-primary">Erfolg</h1>
         </a>
       </div>

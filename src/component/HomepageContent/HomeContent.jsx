@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function HomeContent() {
   const navigate = useNavigate();
   const goToTask = () => {
-    navigate("/Mytask");
+    navigate("/Mytask/task-list");
   };
 
   return (
