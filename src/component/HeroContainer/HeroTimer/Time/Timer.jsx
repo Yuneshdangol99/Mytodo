@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from "react";
 
-function Timer() {
+function Timer({ isPlaying }) {
   const [Timeleft, setTimeleft] = useState(1500);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeleft((prevTimeleft) => {
-        if (prevTimeleft <= 0) {
-          clearInterval(interval);
-          return 0;
-        }
-        return prevTimeleft - 1;
-      });
-    }, 1000);
+    if (isPlaying) {
+      const interval = setInterval(() => {
+        setTimeleft((prevTimeleft) => {
+          if (prevTimeleft <= 0) {
+            clearInterval(interval);
+            return 0;
+          }
+          return prevTimeleft - 1;
+        });
+      }, 1000);
 
-    return () => clearInterval(interval);
-  }, []);
+      return () => clearInterval(interval);
+    } else {
+      return;
+    }
+  }, [isPlaying]);
 
   const minutes = Math.floor(Timeleft / 60);
   const seconds = Timeleft % 60;
