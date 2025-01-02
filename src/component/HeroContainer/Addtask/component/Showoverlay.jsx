@@ -34,7 +34,7 @@ function Showoverlay({ closeOverlay }) {
             </h1>
           </div>
 
-          <TaskForm closeOverlay={closeOverlay} />
+          <TaskForm />
         </div>
       </div>
     </div>

@@ -1,8 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const loadTaskfromStorage = () => {
+  const savedtask = localStorage.getItem("tasks");
+  return savedtask ? JSON.parse(savedtask) : [];
+};
+
+const saveTasktoStorage = (tasks) => {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+};
+
 const initialState = {
-  tasks: [],
-  taskCounter: 1,
+  tasks: loadTaskfromStorage(),
+  taskCounter: loadTaskfromStorage.length + 1,
   isOverlayVisible: false,
 };
 
@@ -17,9 +26,11 @@ export const TaskSlice = createSlice({
       };
       state.tasks.push(newtask);
       state.taskCounter += 1;
+      saveTasktoStorage(state.tasks);
     },
     deleteTask: (state, action) => {
       state.tasks = state.tasks.filter((task) => task.id !== action.payload);
+      saveTasktoStorage(state.tasks);
     },
     ShowOverlay: (state) => {
       state.isOverlayVisible = true;

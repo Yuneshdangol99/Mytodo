@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import play from "../../../assets/play.png";
 import pause from "../../../assets/pause.png";
 import Timer from "./Time/Timer";
 import ActiveStatus from "./Time/ActiveStatus";
 
 function HeroTimer() {
-  const [isPlaying, setIsplaying] = useState(false);
-  const [timeStopped, setTimeStopped] = useState(false);
+  const [isPlaying, setIsplaying] = useState(() => {
+    const saveState = localStorage.getItem("isPlaying");
+    return saveState ? JSON.parse(saveState) : false;
+  });
+  const [timeStopped, setTimeStopped] = useState(() => {
+    const saveState = localStorage.getItem("timeStopped");
+    return saveState ? JSON.parse(saveState) : false;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("isPlaying", JSON.stringify(isPlaying));
+  }, [isPlaying]);
+
+  useEffect(() => {
+    localStorage.setItem("timeStopped", JSON.stringify(timeStopped));
+  }, [timeStopped]);
 
   const handleClick = () => {
     setIsplaying(!isPlaying);
