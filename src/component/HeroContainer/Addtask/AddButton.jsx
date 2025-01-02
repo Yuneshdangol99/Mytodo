@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import Showoverlay from "./component/Showoverlay";
+import { useDispatch, useSelector } from "react-redux";
+import { hideoverlay, ShowOverlay } from "../../../redux/Slice/TaskSlice";
 
 function AddButton() {
-  const [ShowOverlay, setShowOverlay] = useState(false);
+  const dispatch = useDispatch();
+  const isOverlayVisible = useSelector((state) => state.tasks.isOverlayVisible);
 
   const handletask = () => {
-    setShowOverlay(true);
+    dispatch(ShowOverlay());
   };
 
   return (
     <>
-      {!ShowOverlay && (
+      {!isOverlayVisible && (
         <button
           onClick={handletask}
           className="px-4 py-2 bg-primary rounded-xl text-white flex items-center gap-1"
@@ -19,7 +22,7 @@ function AddButton() {
           <IoIosAddCircleOutline className="text-xl" /> Add Task
         </button>
       )}
-      {ShowOverlay && <Showoverlay />}
+      {isOverlayVisible && <Showoverlay />}
     </>
   );
 }

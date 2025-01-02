@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import TaskForm from "./TaskForm";
 
-function Showoverlay() {
+function Showoverlay({ closeOverlay }) {
   const [IsVisible, setIsvisible] = useState(true);
   const overlayRef = useRef(null);
 
@@ -34,7 +34,7 @@ function Showoverlay() {
             </h1>
           </div>
 
-          <TaskForm />
+          <TaskForm closeOverlay={closeOverlay} />
         </div>
       </div>
     </div>

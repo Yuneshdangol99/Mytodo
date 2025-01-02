@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTasks } from "../../../../redux/Slice/TaskSlice";
+import { addTasks, hideoverlay } from "../../../../redux/Slice/TaskSlice";
 import { v4 as uuidv4 } from "uuid";
 
 function TaskForm() {
@@ -23,6 +23,10 @@ function TaskForm() {
     }
   };
 
+  const closeOverlay = () => {
+    dispatch(hideoverlay());
+  };
+
   return (
     <div className="w-full">
       <form onSubmit={handleSubmit} className="w-full">
@@ -43,6 +47,7 @@ function TaskForm() {
           </button>
           <button
             type="button"
+            onClick={closeOverlay}
             className="bg-red-600 px-4 py-2 text-white mt-6 mx-auto block"
           >
             Cancel

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   tasks: [],
   taskCounter: 1,
+  isOverlayVisible: false,
 };
 
 export const TaskSlice = createSlice({
@@ -10,7 +11,6 @@ export const TaskSlice = createSlice({
   initialState,
   reducers: {
     addTasks: (state, action) => {
-      // state.tasks.push(action.payload);
       const newtask = {
         id: state.taskCounter,
         task: action.payload.task,
@@ -18,10 +18,20 @@ export const TaskSlice = createSlice({
       state.tasks.push(newtask);
       state.taskCounter += 1;
     },
+    deleteTask: (state, action) => {
+      state.tasks = state.tasks.filter((task) => task.id !== action.payload);
+    },
+    ShowOverlay: (state) => {
+      state.isOverlayVisible = true;
+    },
+    hideoverlay: (state) => {
+      state.isOverlayVisible = false;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addTasks } = TaskSlice.actions;
+export const { addTasks, deleteTask, ShowOverlay, hideoverlay } =
+  TaskSlice.actions;
 
 export default TaskSlice.reducer;
