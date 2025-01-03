@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from "uuid";
 function TaskForm() {
   const [value, setValue] = useState("");
   const [TaskCount, setTaskCount] = useState(1);
-  const [showSuccess, setShowsuccess] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -18,7 +17,6 @@ function TaskForm() {
       dispatch(addTasks({ task: value }));
       setValue("");
       setTaskCount(TaskCount + 1);
-      setShowsuccess(true);
       console.log("task id :", taskId, "task value:", value);
     }
   };
@@ -30,7 +28,6 @@ function TaskForm() {
   return (
     <div className="w-full">
       <form onSubmit={handleSubmit} className="w-full">
-        {showSuccess && <p>Added succesfully</p>}
         <input
           type="text"
           placeholder="Add task here"

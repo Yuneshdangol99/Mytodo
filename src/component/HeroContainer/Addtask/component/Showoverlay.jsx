@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import TaskForm from "./TaskForm";
 
-function Showoverlay({ closeOverlay }) {
-  const [IsVisible, setIsvisible] = useState(true);
+function Showoverlay() {
   const overlayRef = useRef(null);
 
   const handleOutsideClick = (event) => {
     if (overlayRef.current && !overlayRef.current.contains(event.target)) {
-      setIsvisible(false);
+      setIsOverlayvisible(false);
     }
   };
 
@@ -18,8 +17,6 @@ function Showoverlay({ closeOverlay }) {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
-
-  if (!IsVisible) return null;
 
   return (
     <div>
